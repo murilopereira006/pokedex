@@ -2,7 +2,8 @@
   <main>
       <div class="pokemon">
         <h2 class="name">Pucachu</h2>
-        <h3 class="test">{{ name }}</h3>
+        <h3 class="test">{{ pokemon.name }}</h3>
+        <h3 class="test">{{ index }}</h3>
       </div>
   </main>
 </template>
@@ -11,9 +12,9 @@
 export default {
   name: 'PokemonDiv',
   props: {
-    name: String,
+    pokemon: String,
     img: String,
-    id: String,
+    index: Number,
   },
 };
 </script>

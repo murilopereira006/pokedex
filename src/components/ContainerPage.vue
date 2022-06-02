@@ -15,8 +15,8 @@ fetch(url)
 <template>
   <div v-if="error">Oops! Error encountered: {{ error.message }}</div>
   <div v-else-if="data">
-    <li v-for="name in data.results">
-      <PokemonDiv :name="name" />
+    <li v-for="(pokemon, key) in data.results">
+      <PokemonDiv :pokemon="pokemon" :index="key"/>
     </li>
   </div>
   <div v-else>Loading...</div>
