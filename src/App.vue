@@ -1,17 +1,26 @@
 <template>
-  <HelloWorld />
+  <div class="bg">
+    <ContainerPage />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import ContainerPage from './components/ContainerPage.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    ContainerPage,
   },
 };
 </script>
 
 <style lang="scss">
+.bg {
+  background-color: $bg
+}
+
+h1 {
+  color: $primary;
+}
 </style>
