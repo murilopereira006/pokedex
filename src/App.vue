@@ -17,10 +17,7 @@ export default {
 
 <style lang="scss">
 .bg {
-  background-color: $bg
-}
-
-h1 {
-  color: $primary;
+  background-color: $bg;
+  text-align: center;
 }
 </style>

@@ -1,17 +1,17 @@
 <template>
-  <!-- <div v-if="error">Oops! Error encountered: {{ error.message }}</div>
-  <div v-else-if="data"> -->
-    <img :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + num + '.png'" alt="" >
-    <pokemonImg :link="'raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + num + '.png'" :numb="num"/>
-    <h2 class="namePokemon">{{ pokemon.name }}</h2>
-    <h2 class="namePokemon">{{ num }}</h2>
-  <!-- </div>
-  <div v-else>Loading...</div> -->
+    <div class="pokeBox">
+      <img
+        :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + num + '.png'"
+        :alt="pokemon.name + 'image'"
+      >
+      <div class="textBox">
+        <h4 class="namePokemon">{{ pokemon.name }}</h4>
+        <h4 class="namePokemon">#{{ num }}</h4>
+      </div>
+    </div>
 </template>
 
 <script>
-import pokemonImg from './pokemonImg.vue';
-
 export default {
   name: 'PokemonDiv',
   props: {
@@ -19,17 +19,33 @@ export default {
     img: String,
     num: Number,
   },
-  components: {
-    pokemonImg,
-  },
 };
-// console.log('tem');
-// const url = `https://pokeapi.co/api/v2/pokemon/123`;
-// const data = ref(null);
-// const error = ref(null);
-
-// fetch(url)
-//   .then((res) => res.json())
-//   .then((json) => (data.value = json))
-//   .catch((err) => (error.value = err));
 </script>
+
+<style lang="scss">
+  .pokeBox {
+    width: 25%;
+    min-width: 250px;
+    background-color: white;
+    color: $text;
+    padding: 15px;
+    margin: 20px;
+    align-items: center;
+    text-align: center;
+  }
+  .textBox {
+    display: flex;
+    justify-content: space-between;
+    height: 35px;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 15px;
+  }
+  h4 {
+    margin-bottom: 5px;
+  }
+  img {
+    width: auto;
+    height: 100px;
+  }
+</style>

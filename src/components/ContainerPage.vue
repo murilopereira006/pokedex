@@ -16,7 +16,7 @@ fetch(url)
   <input type="text" placeholder="Teste" key="search-pokemon"/>
   <div v-if="error">Oops! Error encountered: {{ error.message }}</div>
   <div v-else-if="data">
-    <div v-for="(pokemon, key) in data.results" :key="key">
+    <div class="pokemonBox" v-for="(pokemon, key) in data.results" :key="key">
       <PokemonDiv :pokemon="pokemon" :num="key + 1" />
     </div>
   </div>
@@ -29,15 +29,16 @@ export default {
   components: {
     PokemonDiv,
   },
-  // methods: {
-  //   getThumbnail: function (pokemonNumber) {
-  //     dataImg = fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonNumber + 1}`)
-  //       .then((res) => res.json())
-  //       .then((json) => (data.value = json))
-  //       .catch((err) => (error.value = err));
-
-  //     return dataImg.sprites.other["official-artwork"].front_default;
-  //   },
-  // }
 };
 </script>
+
+<style lang="scss">
+  input {
+    width: 100%;
+    padding: 5px 15px;
+  }
+  .pokemonBox {
+    display: inline-flex;
+    align-items: center;
+  }
+</style>
