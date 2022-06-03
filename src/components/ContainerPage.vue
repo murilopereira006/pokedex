@@ -13,11 +13,13 @@ fetch(url)
 </script>
 
 <template>
-  <input type="text" placeholder="Teste" key="search-pokemon"/>
+  <input type="text" placeholder="Search" key="search-pokemon" v-model="searchPokemon"/>
   <div v-if="error">Oops! Error encountered: {{ error.message }}</div>
   <div v-else-if="data">
     <div class="pokemonBox" v-for="(pokemon, key) in data.results" :key="key">
-      <PokemonDiv :pokemon="pokemon" :num="key + 1" />
+      <div v-if="pokemon.name.toLowerCase().includes(searchPokemon)">
+        <PokemonDiv :pokemon="pokemon" :num="key + 1" />
+      </div>
     </div>
   </div>
   <div v-else>Loading...</div>
@@ -29,13 +31,21 @@ export default {
   components: {
     PokemonDiv,
   },
+  data: function () {
+    return {
+      searchPokemon: '',
+    };
+  },
 };
 </script>
 
 <style lang="scss">
   input {
-    width: 100%;
-    padding: 5px 15px;
+    width: 95%;
+    padding: 15px 25px;
+    background-color: $bg;
+    border: none;
+    border-bottom: 1px solid $text;
   }
   .pokemonBox {
     display: inline-flex;
